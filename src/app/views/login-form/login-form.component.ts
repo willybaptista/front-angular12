@@ -61,10 +61,6 @@ export class LoginFormComponent implements OnInit {
 
           this.authService.setUserLogged(data);
 
-          const getUserLogged = this.authService.getUserLogged();
-
-          console.log(getUserLogged.access_token);
-
           this.router.navigate(['home']);
         },
         error: (error) => {
