@@ -1,0 +1,13 @@
+.validation-error {
+  padding: 5px;
+  color: red;
+  font-weight: 500;
+}
+
+.validation-auth {
+  border-radius: 5px;;
+  background-color: red;
+  padding: 10px;
+  color: #FFF;
+  font-weight: 500;
+}
