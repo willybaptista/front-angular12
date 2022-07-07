@@ -1,18 +1,20 @@
-<form [formGroup]="loginForm" #formDir="ngForm" (ngSubmit)="onSubmit(formDir)">
-  <div class="form-group">
-    <label for="email">Email:</label>
-    <input type="text" formControlName="email" placeholder="Digite seu email" required />
-    <div *ngIf="email.invalid && formDir.submitted" class="validation-error">
-      <p *ngIf="email.errors?.['required']">O email é obrigatório.</p>
-    </div>
+<form class="example-form" [formGroup]="loginForm" #formDir="ngForm" (ngSubmit)="onSubmit(formDir)">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Email</mat-label>
+    <input type="email" matInput formControlName="email" placeholder="Digite seu email" required>
+      <mat-error *ngIf="password.invalid && formDir.submitted">
+      Email obrigatório.
+      </mat-error>
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Senha</mat-label>
+    <input type="password" matInput formControlName="password" placeholder="Digite sua senha" required>
+      <mat-error *ngIf="password.invalid && formDir.submitted">
+        Senha obrigatória.
+      </mat-error>
+  </mat-form-field>
+  <div class="error-auth">
+    <mat-error *ngIf="!userAuth">Email ou senha inválidos.</mat-error>
   </div>
-  <div class="form-group">
-    <label for="email">Senha:</label>
-    <input type="password" formControlName="password" placeholder="Digite sua senha" required />
-    <div *ngIf="password.invalid && formDir.submitted" class="validation-error">
-      <p *ngIf="password.errors?.['required']">A senha é obrigatória.</p>
-    </div>
-  </div>
-  <div *ngIf="!userAuth" class="validation-auth">Usuário ou senha inválido.</div>
-  <input type="submit" value="Entrar">
+  <button type="submit" mat-raised-button color="primary">Entrar</button>
 </form>

@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/services/user.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -9,38 +7,10 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(
-    private userService: UserService,
-    private router: Router
-  ) { }
+  constructor() { }
 
   ngOnInit(): void {
 
-    this.getUsers();
-
-  }
-
-  async getUsers() {
-
-    await this.userService.getUsers().subscribe(
-      {
-        next: (data) => {
-
-          console.log(data);
-
-          return data;
-
-        },
-        error: (error) => {
-
-          console.error(error);
-
-          this.router.navigate(['login']);
-
-        },
-        complete: () => console.info('users ok')
-      }
-    );
   }
 
 }

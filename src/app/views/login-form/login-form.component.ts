@@ -69,6 +69,8 @@ export class LoginFormComponent implements OnInit {
 
           this.userAuth = false;
 
+          //this.loginForm.reset();
+
         },
         complete: () => console.info('logged')
       }

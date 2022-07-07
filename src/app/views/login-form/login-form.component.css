@@ -11,3 +11,34 @@
   color: #FFF;
   font-weight: 500;
 }
+
+.example-form {
+  margin-top: 50px;
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
+}
+.example-button-container {
+  display: flex;
+  justify-content: center;
+  width: 120px;
+}
+
+.mat-raised-button {
+  width: 100%;
+  margin-top:20px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.error-auth {
+  margin-top: 10px;
+  font-size: 18px;
+}
