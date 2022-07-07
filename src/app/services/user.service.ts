@@ -5,7 +5,6 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Response } from '../interfaces/Response';
 import { User } from '../models/User';
-import { UserResponse } from '../interfaces/UserResponse';
 import { AuthService } from './auth.service';
 
 @Injectable({
