@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 import { Response } from '../interfaces/Response';
 import { User } from '../models/User';
-import { AuthService } from './auth.service';
+import { HttpConfigService } from './http-config.service';
 
 @Injectable({
   providedIn: 'root'
@@ -17,20 +17,14 @@ export class UserService {
 
   constructor(
     private httpClient: HttpClient,
-    private authService: AuthService
+    private httpConfigService: HttpConfigService
   ) {
+
   }
 
   public getUsers(): Observable<Response<User>> {
 
-    const token = this.authService.getUserLogged();
-
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': 'Bearer ' + token.access_token
-      })
-    };
+    const httpOptions = this.httpConfigService.httpConfig();
 
     return this.httpClient.get<Response<User>>(this.apiUrl, httpOptions);
 

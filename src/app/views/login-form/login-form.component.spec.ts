@@ -1,6 +1,15 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LoginFormComponent } from './login-form.component';
+import { Observable } from 'rxjs';
+import { LoginService } from 'src/app/services/login.service';
+
+let mockloginServiceData: any = null;
+class MockloginService {
+  auth(): Observable<any[]> {
+    return mockloginServiceData;
+  }
+}
 
 describe('LoginFormComponent', () => {
   let component: LoginFormComponent;
@@ -8,7 +17,10 @@ describe('LoginFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ LoginFormComponent ]
+      declarations: [ LoginFormComponent ],
+      providers: [
+        { provide: LoginService, useClass: MockloginService }
+      ]
     })
     .compileComponents();
 
